@@ -1,23 +1,23 @@
 const router = require('express').Router(); 
 
 // model import 
-const Birds = require('./bird-model'); 
+const Cats = require('./cat-model'); 
 
-router.get('/birds', (req, res) => {
-    Birds.getBirds()
-        .then(birds => {
-            res.status(200).json(birds)
+router.get('/cats', (req, res) => {
+    Cats.getCats()
+        .then(cats => {
+            res.status(200).json(cats)
         })
         .catch(err => {
             res.status(500).json(err); 
         })
 })
 
-router.post('/birds', (req, res) => {
+router.post('/cats', (req, res) => {
     const body = req.body
-    Birds.addAnimals(body)
-        .then(birds => {
-            res.status(201).json(birds)
+    Cats.addAnimals(body)
+        .then(cats => {
+            res.status(201).json(cats)
         })
         .catch(err => {
             res.status(500).json(err); 

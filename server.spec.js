@@ -12,7 +12,11 @@ describe('server.js', () => {
     describe('dog route', () => {
         it('should return a status code of 200', () => { // need to make this anonymous function asynchronous 
             return request(server).get('/dog')
-                .expect(200); 
+                .expect(200)
+                .then(res => {
+                    const dog = res.dog
+                    expect(dog.toEqual)
+                })
         })
         it('should return a status code of 201', () => {
             return request(server).post('/dog')
